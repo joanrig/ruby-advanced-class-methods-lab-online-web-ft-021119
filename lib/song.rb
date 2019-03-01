@@ -41,8 +41,8 @@ class Song
   end
 
   def Song.find_or_create_by_name(name)
-    Song.create_by_name(name)
-    Song.find_by_name(name)
+    Song.find_by_name(name) || Song.create_by_name(name)
+
     # # this makes sense, but does not work:
     # if Song.find_by_name(name) == nil
     #   Song.create_by_name(name)
